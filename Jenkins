@@ -2,6 +2,25 @@ pipeline {
     agent any
 
     stages {
+        stage('git checkout'){
+        steps{
+        script{
+        checkout([
+          $class: 'GitSCM',
+          branches: [[name: "main"]],
+          doGenerateSubmoduleConfigurations: false,
+          extensions: [
+            [$class: 'RelativeTargetDirectory', relativeTargetDir: 'acm-e2e-config']
+            ],
+          submoduleCfg: [],
+          userRemoteConfigs: [
+            [
+              url: 'https://github.com/Be-Hegade/Platform-Fraud.git'
+            ]
+          ]
+        ])  
+        }
+        }
         stage('Hello') {
             steps {
                 sh '''
