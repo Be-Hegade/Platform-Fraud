@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                sh '''
+                pwd
+                java -version
+                echo 1
+                ls
+                wget https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.4.3.tgz
+                echo 2
+                ls
+                tar zxvf apache-jmeter-5.4.3.tgz
+                ls
+                cd apache-jmeter-5.4.3/bin/
+                ls
+               
+                pwd
+               # ./jmeter -n -t test.jmx -l testresults.jtl               
+
+                '''
+            }
+        }
+    }
+}
