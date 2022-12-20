@@ -10,7 +10,7 @@ pipeline {
           branches: [[name: "main"]],
           doGenerateSubmoduleConfigurations: false,
           extensions: [
-            [$class: 'RelativeTargetDirectory', relativeTargetDir: 'acm-e2e-config']
+            [$class: 'RelativeTargetDirectory', relativeTargetDir: 'Platform-Fraud']
             ],
           submoduleCfg: [],
           userRemoteConfigs: [
